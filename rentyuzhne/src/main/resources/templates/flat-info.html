@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+
+    <title>КАВРТИРЫ В ГОРОДЕ ЮЖНОЕ</title>
+</head>
+<body>
+<div class="container">
+    <h1>КВАРТИРЫ В ГОРОДЕ ЮЖНОЕ</h1>
+    </br>
+    <a th:href="@{/}">На главную страницу</a>
+
+        <h3 th:text="${flat.title}"></h3>
+        Количество комнат: <p th:text="${flat.amountRoom}"></p>
+        Адресс: <p th:text="${flat.adress.street}"></p>
+        Цена: <p th:text="${flat.price}"></p>
+        Этаж: <p th:text="${flat.floor.storey}"></p>
+        Линия от моря: <p th:text="${flat.lineSea.linesea}"></p>
+        <p>Описание </p>
+        <p th:text="${flat.description}"></p>
+
+        <div th:each="img : ${images}">
+            </br>
+            <img th:src="@{/images/{id}(id=${img.id})}" height="120px"/>
+        </div>
+
+    <p><a th:href="@{/user/{id}(id=${flat.user.id})}">Автор</a></p>
+
+</div>
+</body>
+</html>
